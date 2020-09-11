@@ -1,54 +1,76 @@
-package lesson1;
+package lesson2;
 
-import java.sql.SQLOutput;
-import java.util.Scanner;
+
+import java.util.Arrays;
 
 public class Main {
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
 
-        name();
+        int[] arr = {0, 1, 0, 1, 0, 1};
+        for (int i = 0; i < arr.length; i++) {
 
-        System.out.println("Вычислим выражение a*(b+(c/d))");
-        System.out.println("Введите число a");
-        Scanner scanner = new Scanner(System.in);
-        double a = scanner.nextDouble();
-        System.out.println("Введите число b");
-        double b = scanner.nextDouble();
-        System.out.println("Введите число c");
-        double c = scanner.nextDouble();
-        System.out.println("Введите число d");
-        double d = scanner.nextDouble();
-        if (d == 0.0){
-            System.out.println("На ноль делить нельзя !");
-        }
-        else {
-            double resoult = a*(b+(c/d));
-            System.out.println("Результат " + resoult);
+            if (arr[i] == 0) {
+                arr[i] = 1;
+            } else {
+                arr[i] = 0;
+            }
+
+            System.out.println(Arrays.toString(arr));
+
         }
 
-        //bool();
-
+        emptyArray();
+        changeArray();
+        diagonalArray();
 
     }
 
-    /*public static void bool (){
-        System.out.println("Проверим сумму двух чисел");
-        System.out.println("Введите первое число");
-        Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
-        System.out.println("Введите второе число");
-        int b = scanner.nextInt();
-        int resoult = a + b;
+    public static void emptyArray() {
 
+        int[] arr2 = new int[8];
+        for (int i = 0; i < arr2.length; i++) {
 
-    }*/
+            arr2[i] = i * 3;
 
-    public static void  name (){
-        System.out.println("Введите ваше имя");
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
-        System.out.println("Привет, " + name);
+        }
+
+        System.out.println(Arrays.toString(arr2));
+
     }
 
+    public static void changeArray() {
+
+        int[] arr3 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        for (int i = 0; i < arr3.length; i++) {
+
+            if (arr3[i] < 6) {
+                arr3[i] *= 2;
+            } else {
+                arr3[i] *= 1;
+            }
+
+        }
+
+        System.out.println(Arrays.toString(arr3));
+
+    }
+
+    public static void diagonalArray() {
+
+        int[][] arr4 = new int[5][5];
+        int lastIndex = arr4.length - 1;
+        for (int i = 0; i < arr4.length; i++){
+
+            arr4[i][i] = arr4[i][lastIndex -i] = 1;
+
+        }
+
+        for (int[] ints : arr4) {
+
+            System.out.println(Arrays.toString(ints));
+
+        }
+
+    }
 }
